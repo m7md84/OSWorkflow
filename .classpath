@@ -15,7 +15,6 @@
 	<classpathentry kind="lib" path="lib/designer/forms.jar"/>
 	<classpathentry kind="lib" path="lib/designer/jgraph.jar"/>
 	<classpathentry kind="lib" path="lib/optional/ofbcore-entity.jar"/>
-	<classpathentry kind="lib" path="lib/build/junit-3.8.1.jar"/>
 	<classpathentry kind="lib" path="lib/optional/bsf.jar"/>
 	<classpathentry kind="lib" path="lib/optional/commons-dbcp.jar"/>
 	<classpathentry kind="lib" path="lib/optional/activation.jar"/>
@@ -64,5 +63,6 @@
 	<classpathentry kind="lib" path="lib/optional/spring-1.2.5.jar"/>
 	<classpathentry kind="lib" path="lib/optional/xfire/xfire-aegis.jar"/>
 	<classpathentry kind="lib" path="lib/optional/xfire/xfire-core.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/test"/>
 </classpath>

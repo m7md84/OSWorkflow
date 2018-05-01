@@ -27,17 +27,6 @@ public abstract class AbstractWorkflowFactory implements WorkflowFactory {
     //~ Methods ////////////////////////////////////////////////////////////////
 
     /**
-       * Get the configuration properties of this factory
-       */
-    public Properties getProperties() {
-        return properties;
-    }
-
-    public final void init(Properties p) {
-        this.properties = p;
-    }
-
-    /**
      * Get a workflow descriptor given a workflow name.
      * @param name The name of the workflow to get.
      * @return The descriptor for the specified workflow.
@@ -46,6 +35,17 @@ public abstract class AbstractWorkflowFactory implements WorkflowFactory {
      */
     public WorkflowDescriptor getWorkflow(String name) throws FactoryException {
         return getWorkflow(name, true);
+    }
+
+    public final void init(Properties p) {
+        this.properties = p;
+    }
+
+    /**
+       * Get the configuration properties of this factory
+       */
+    public Properties getProperties() {
+        return properties;
     }
 
     /**

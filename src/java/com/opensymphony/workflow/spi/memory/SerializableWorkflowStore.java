@@ -37,6 +37,14 @@ public class SerializableWorkflowStore extends MemoryWorkflowStore {
 
     //~ Methods ////////////////////////////////////////////////////////////////
 
+    public static void setStoreFile(String storeFile) {
+        SerializableWorkflowStore.storeFile = storeFile;
+    }
+
+    public static String getStoreFile() {
+        return storeFile;
+    }
+
     public PropertySet getPropertySet(long entryId) {
         PropertySet ps = (PropertySet) SerializableCache.getInstance().propertySetCache.get(new Long(entryId));
 
@@ -46,14 +54,6 @@ public class SerializableWorkflowStore extends MemoryWorkflowStore {
         }
 
         return ps;
-    }
-
-    public static void setStoreFile(String storeFile) {
-        SerializableWorkflowStore.storeFile = storeFile;
-    }
-
-    public static String getStoreFile() {
-        return storeFile;
     }
 
     public Step createCurrentStep(long entryId, int stepId, String owner, Date startDate, Date dueDate, String status, long[] previousIds) {

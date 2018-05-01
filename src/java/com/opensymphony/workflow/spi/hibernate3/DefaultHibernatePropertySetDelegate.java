@@ -2,7 +2,6 @@
  * Copyright (c) 2002-2003 by OpenSymphony
  * All rights reserved.
  */
-
 package com.opensymphony.workflow.spi.hibernate3;
 
 import com.opensymphony.module.propertyset.PropertySet;

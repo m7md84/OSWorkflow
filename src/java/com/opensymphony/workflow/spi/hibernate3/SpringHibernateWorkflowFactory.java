@@ -10,23 +10,25 @@
  */
 package com.opensymphony.workflow.spi.hibernate3;
 
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-
 import com.opensymphony.workflow.FactoryException;
 import com.opensymphony.workflow.InvalidWorkflowDescriptorException;
 import com.opensymphony.workflow.loader.AbstractWorkflowFactory;
 import com.opensymphony.workflow.loader.WorkflowDescriptor;
 import com.opensymphony.workflow.spi.hibernate.WorkflowName;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
+import java.sql.SQLException;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -54,6 +56,10 @@ public class SpringHibernateWorkflowFactory extends AbstractWorkflowFactory {
     }
 
     //~ Methods ////////////////////////////////////////////////////////////////
+
+    public static void forceReload() {
+        forceReload = true;
+    }
 
     public void setLayout(String workflowName, Object layout) {
     }
@@ -108,10 +114,6 @@ public class SpringHibernateWorkflowFactory extends AbstractWorkflowFactory {
     }
 
     public void createWorkflow(String name) {
-    }
-
-    public static void forceReload() {
-        forceReload = true;
     }
 
     public void initDone() throws FactoryException {

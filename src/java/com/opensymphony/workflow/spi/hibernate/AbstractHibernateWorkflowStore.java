@@ -195,7 +195,7 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
 
                     while (iter.hasNext()) {
                         HibernateStep step = (HibernateStep) iter.next();
-                        results.add(new Long(step.getEntryId()));
+                        results.add(step.getEntryId());
                     }
 
                     return new ArrayList(results);
@@ -242,10 +242,10 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
 
                         if (next instanceof HibernateStep) {
                             HibernateStep step = (HibernateStep) next;
-                            item = new Long(step.getEntryId());
+                            item = step.getEntryId();
                         } else {
                             WorkflowEntry entry = (WorkflowEntry) next;
-                            item = new Long(entry.getId());
+                            item = entry.getId();
                         }
 
                         results.add(item);
@@ -255,9 +255,6 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
                 }
             });
     }
-
-    // Companion method of InternalCallback class
-    protected abstract Object execute(InternalCallback action) throws StoreException;
 
     protected String getCacheRegion() {
         return cacheRegion;
@@ -301,6 +298,9 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
                 }
             });
     }
+
+    // Companion method of InternalCallback class
+    protected abstract Object execute(InternalCallback action) throws StoreException;
 
     // ~ DAO Methods ////////////////////////////////////////////////////////////////
     protected HibernateWorkflowEntry loadEntry(final long entryId) throws StoreException {

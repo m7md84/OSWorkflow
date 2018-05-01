@@ -28,13 +28,10 @@ import java.util.*;
  * @author Hani Suleiman
  */
 public class AbstractWorkflow implements Workflow {
-    //~ Static fields/initializers /////////////////////////////////////////////
-
-    protected final Log log = LogFactory.getLog(getClass());
-
     //~ Instance fields ////////////////////////////////////////////////////////
 
     protected Configuration configuration;
+    protected final Log log = LogFactory.getLog(getClass());
     protected ThreadLocal stateCache = new ThreadLocal();
     protected WorkflowContext context;
     private TypeResolver typeResolver;
@@ -174,7 +171,7 @@ public class AbstractWorkflow implements Workflow {
         } catch (StoreException e) {
             log.error("Error checking current steps for instance #" + id, e);
 
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
     }
 
@@ -205,7 +202,7 @@ public class AbstractWorkflow implements Workflow {
             log.error("Error getting history steps for instance #" + id, e);
         }
 
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
@@ -304,7 +301,7 @@ public class AbstractWorkflow implements Workflow {
             log.error("Error getting security permissions for instance #" + id, e);
         }
 
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
@@ -400,7 +397,7 @@ public class AbstractWorkflow implements Workflow {
         }
 
         try {
-            populateTransientMap(mockEntry, transientVars, Collections.EMPTY_LIST, new Integer(initialAction), Collections.EMPTY_LIST, ps);
+            populateTransientMap(mockEntry, transientVars, Collections.emptyList(), new Integer(initialAction), Collections.emptyList(), ps);
 
             return canInitialize(workflowName, initialAction, transientVars, ps);
         } catch (InvalidActionException e) {
@@ -591,7 +588,7 @@ public class AbstractWorkflow implements Workflow {
         executeFunction(wf.getTriggerFunction(triggerId), transientVars, ps);
     }
 
-    public long initialize(String workflowName, int initialAction, Map inputs) throws InvalidRoleException, InvalidInputException, WorkflowException {
+    public long initialize(String workflowName, int initialAction, Map inputs) throws InvalidRoleException, WorkflowException {
         WorkflowDescriptor wf = getConfiguration().getWorkflow(workflowName);
 
         WorkflowStore store = getPersistence();
@@ -615,7 +612,7 @@ public class AbstractWorkflow implements Workflow {
         ActionDescriptor action = wf.getInitialAction(initialAction);
 
         try {
-            transitionWorkflow(entry, Collections.EMPTY_LIST, store, wf, action, transientVars, inputs, ps);
+            transitionWorkflow(entry, Collections.emptyList(), store, wf, action, transientVars, inputs, ps);
         } catch (WorkflowException e) {
             context.setRollbackOnly();
             throw e;
@@ -689,7 +686,7 @@ public class AbstractWorkflow implements Workflow {
                 conditions = restriction.getConditionsDescriptor();
             }
 
-            result = new Boolean(passesConditions(wf.getGlobalConditions(), new HashMap(transientVars), ps, stepId) && passesConditions(conditions, new HashMap(transientVars), ps, stepId));
+            result = passesConditions(wf.getGlobalConditions(), new HashMap(transientVars), ps, stepId) && passesConditions(conditions, new HashMap(transientVars), ps, stepId);
             cache.put(action, result);
         }
 
@@ -1382,7 +1379,7 @@ public class AbstractWorkflow implements Workflow {
                 // move the rest without creating a new step ...
                 ResultDescriptor joinresult = joinDesc.getResult();
 
-                if (joinresult.getValidators().size() > 0) {
+                if (!joinresult.getValidators().isEmpty()) {
                     verifyInputs(entry, joinresult.getValidators(), Collections.unmodifiableMap(transientVars), ps);
                 }
 

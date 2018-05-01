@@ -40,11 +40,11 @@ import java.util.Map;
 public class WorkflowSystem implements WorkflowStore, Serializable {
     //~ Instance fields ////////////////////////////////////////////////////////
 
+    private transient QueryLogic _queryLogic = new QueryLogic(this);
     private HashMap _currentStepsCache = new HashMap();
     private HashMap _entryCache = new HashMap();
     private HashMap _historyStepsCache = new HashMap();
     private HashMap _propertySetCache = new HashMap();
-    private transient QueryLogic _queryLogic = new QueryLogic(this);
     private long _globalEntryId = 1;
     private long _globalStepId = 1;
 

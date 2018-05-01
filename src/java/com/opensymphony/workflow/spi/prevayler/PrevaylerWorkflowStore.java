@@ -309,17 +309,6 @@ public class PrevaylerWorkflowStore implements WorkflowStore, Serializable {
 
     //~ Inner Classes //////////////////////////////////////////////////////////
 
-    private class ObjectActioner implements Serializable {
-        protected Object _object = null;
-
-        public ObjectActioner() {
-        }
-
-        public ObjectActioner(Object object) {
-            _object = object;
-        }
-    }
-
     private abstract class QueryImpl extends ObjectActioner implements Query {
         public QueryImpl(Object object) {
             super(object);
@@ -357,6 +346,17 @@ public class PrevaylerWorkflowStore implements WorkflowStore, Serializable {
 
         public Object executeAndQuery(Object prevSystem, Date ignored) throws Exception {
             return execute(((WorkflowSystem) prevSystem));
+        }
+    }
+
+    private class ObjectActioner implements Serializable {
+        protected Object _object = null;
+
+        public ObjectActioner() {
+        }
+
+        public ObjectActioner(Object object) {
+            _object = object;
         }
     }
 }

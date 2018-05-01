@@ -29,9 +29,9 @@ public abstract class Expression implements Serializable {
 
     //~ Methods ////////////////////////////////////////////////////////////////
 
+    abstract public boolean isNested();
+
     public boolean isNegate() {
         return negate;
     }
-
-    abstract public boolean isNested();
 }

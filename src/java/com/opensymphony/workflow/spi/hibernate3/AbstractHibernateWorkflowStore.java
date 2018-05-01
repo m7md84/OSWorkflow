@@ -261,9 +261,6 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
             });
     }
 
-    // Companion method of InternalCallback class
-    protected abstract Object execute(InternalCallback action) throws StoreException;
-
     protected String getCacheRegion() {
         return cacheRegion;
     }
@@ -306,6 +303,9 @@ public abstract class AbstractHibernateWorkflowStore implements WorkflowStore {
                 }
             });
     }
+
+    // Companion method of InternalCallback class
+    protected abstract Object execute(InternalCallback action) throws StoreException;
 
     // ~ DAO Methods ////////////////////////////////////////////////////////////////
     protected HibernateWorkflowEntry loadEntry(final long entryId) throws StoreException {

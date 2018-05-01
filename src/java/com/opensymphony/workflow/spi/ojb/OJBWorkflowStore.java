@@ -370,12 +370,6 @@ public class OJBWorkflowStore implements WorkflowStore {
         return results;
     }
 
-    private PersistenceBroker getBroker() throws PBFactoryException {
-        PersistenceBroker broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-
-        return broker;
-    }
-
     private static String escape(String s) {
         StringBuffer sb = new StringBuffer(s);
 
@@ -399,6 +393,12 @@ public class OJBWorkflowStore implements WorkflowStore {
         }
 
         return sb.toString();
+    }
+
+    private PersistenceBroker getBroker() throws PBFactoryException {
+        PersistenceBroker broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+
+        return broker;
     }
 
     private String queryComparison(WorkflowQuery query) {

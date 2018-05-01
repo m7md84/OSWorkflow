@@ -6,18 +6,22 @@ package com.opensymphony.workflow.loader;
 
 import com.opensymphony.workflow.InvalidWorkflowDescriptorException;
 import com.opensymphony.workflow.util.Validatable;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import org.xml.sax.InputSource;
+
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import java.util.*;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.*;
 
 
 /**

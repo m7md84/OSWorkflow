@@ -38,16 +38,16 @@ public class SpringWorkflowDescriptorFactory implements FactoryBean {
         this.descriptorResource = inDescriptorResource;
     }
 
+    public final void setReload(final boolean inReload) {
+        this.reload = inReload;
+    }
+
     public Object getObject() throws InvalidWorkflowDescriptorException, SAXException, IOException {
         return WorkflowLoader.load(this.descriptorResource.getInputStream(), false);
     }
 
     public Class getObjectType() {
         return WorkflowDescriptor.class;
-    }
-
-    public final void setReload(final boolean inReload) {
-        this.reload = inReload;
     }
 
     public boolean isSingleton() {

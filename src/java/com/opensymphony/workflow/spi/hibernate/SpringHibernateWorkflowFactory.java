@@ -56,6 +56,10 @@ public class SpringHibernateWorkflowFactory extends AbstractWorkflowFactory {
 
     //~ Methods ////////////////////////////////////////////////////////////////
 
+    public static void forceReload() {
+        forceReload = true;
+    }
+
     public void setLayout(String workflowName, Object layout) {
     }
 
@@ -109,10 +113,6 @@ public class SpringHibernateWorkflowFactory extends AbstractWorkflowFactory {
     }
 
     public void createWorkflow(String name) {
-    }
-
-    public static void forceReload() {
-        forceReload = true;
     }
 
     public void initDone() throws FactoryException {

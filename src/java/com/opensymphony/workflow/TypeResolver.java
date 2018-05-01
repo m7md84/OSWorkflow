@@ -59,6 +59,14 @@ public class TypeResolver {
 
     //~ Methods ////////////////////////////////////////////////////////////////
 
+    public static void setResolver(TypeResolver resolver) {
+        TypeResolver.resolver = resolver;
+    }
+
+    public static TypeResolver getResolver() {
+        return resolver;
+    }
+
     public Condition getCondition(String type, Map args) throws WorkflowException {
         String className = (String) conditions.get(type);
 
@@ -99,14 +107,6 @@ public class TypeResolver {
         }
 
         return (Register) loadObject(className);
-    }
-
-    public static void setResolver(TypeResolver resolver) {
-        TypeResolver.resolver = resolver;
-    }
-
-    public static TypeResolver getResolver() {
-        return resolver;
     }
 
     public Validator getValidator(String type, Map args) throws WorkflowException {

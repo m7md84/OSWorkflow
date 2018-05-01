@@ -1125,6 +1125,31 @@ public class JDBCWorkflowStore implements WorkflowStore {
         return rs.getLong(pkColumnName);
     }
 
+    private static String escape(String s) {
+        StringBuffer sb = new StringBuffer(s);
+
+        char c;
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            c = chars[i];
+
+            switch (c) {
+            case '\'':
+                sb.insert(i, '\'');
+                i++;
+
+                break;
+
+            case '\\':
+                sb.insert(i, '\\');
+                i++;
+            }
+        }
+
+        return sb.toString();
+    }
+
     private static PreparedStatement prepareStatementWithKeys(Connection conn, String sql, String pkColumnName) throws SQLException {
         return conn.prepareStatement(sql, new String[] {pkColumnName});
     }
@@ -1251,31 +1276,6 @@ public class JDBCWorkflowStore implements WorkflowStore {
         } finally {
             cleanup(conn, stmt, rs);
         }
-    }
-
-    private static String escape(String s) {
-        StringBuffer sb = new StringBuffer(s);
-
-        char c;
-        char[] chars = s.toCharArray();
-
-        for (int i = 0; i < chars.length; i++) {
-            c = chars[i];
-
-            switch (c) {
-            case '\'':
-                sb.insert(i, '\'');
-                i++;
-
-                break;
-
-            case '\\':
-                sb.insert(i, '\\');
-                i++;
-            }
-        }
-
-        return sb.toString();
     }
 
     private String fieldName(int field) {

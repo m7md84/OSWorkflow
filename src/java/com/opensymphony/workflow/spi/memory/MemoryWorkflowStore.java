@@ -44,6 +44,18 @@ public class MemoryWorkflowStore implements WorkflowStore {
 
     //~ Methods ////////////////////////////////////////////////////////////////
 
+    /**
+    * Reset the MemoryWorkflowStore so it doesn't have any information.
+    * Useful when testing and you don't want the MemoryWorkflowStore to
+    * have old data in it.
+    */
+    public static void reset() {
+        entryCache.clear();
+        currentStepsCache.clear();
+        historyStepsCache.clear();
+        propertySetCache.clear();
+    }
+
     public void setEntryState(long entryId, int state) throws StoreException {
         SimpleWorkflowEntry theEntry = (SimpleWorkflowEntry) findEntry(entryId);
         theEntry.setState(state);
@@ -74,18 +86,6 @@ public class MemoryWorkflowStore implements WorkflowStore {
         currentSteps.add(step);
 
         return step;
-    }
-
-    /**
-    * Reset the MemoryWorkflowStore so it doesn't have any information.
-    * Useful when testing and you don't want the MemoryWorkflowStore to
-    * have old data in it.
-    */
-    public static void reset() {
-        entryCache.clear();
-        currentStepsCache.clear();
-        historyStepsCache.clear();
-        propertySetCache.clear();
     }
 
     public WorkflowEntry createEntry(String workflowName) {

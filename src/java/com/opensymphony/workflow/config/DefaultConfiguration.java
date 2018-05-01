@@ -10,20 +10,24 @@ import com.opensymphony.workflow.loader.*;
 import com.opensymphony.workflow.spi.WorkflowStore;
 import com.opensymphony.workflow.util.DefaultVariableResolver;
 import com.opensymphony.workflow.util.VariableResolver;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import java.io.InputStream;
+import java.io.Serializable;
+
+import java.net.URL;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.InputStream;
-import java.io.Serializable;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 
 
 /**
@@ -48,11 +52,11 @@ public class DefaultConfiguration implements Configuration, Serializable {
 
     //~ Instance fields ////////////////////////////////////////////////////////
 
+    private transient WorkflowStore store = null;
     private Map persistenceArgs = new HashMap();
     private String persistenceClass;
-    private WorkflowFactory factory = new URLWorkflowFactory();
-    private transient WorkflowStore store = null;
     private VariableResolver variableResolver = new DefaultVariableResolver();
+    private WorkflowFactory factory = new URLWorkflowFactory();
     private boolean initialized;
 
     //~ Methods ////////////////////////////////////////////////////////////////
