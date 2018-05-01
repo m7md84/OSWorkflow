@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/opensymphony/workflow/ejb/|com/opensymphony/workflow/spi/ejb/" output="build/java" kind="src" path="src/java"/>
-	<classpathentry output="build/designer" kind="src" path="src/designer"/>
-	<classpathentry output="build/test" kind="src" path="src/test"/>
+	<classpathentry excluding="com/opensymphony/workflow/ejb/|com/opensymphony/workflow/spi/ejb/" kind="src" output="build/java" path="src/java"/>
+	<classpathentry kind="src" output="build/designer" path="src/designer"/>
+	<classpathentry kind="src" output="build/test" path="src/test"/>
 	<classpathentry kind="lib" path="lib/build/log4j-1.2.8.jar"/>
 	<classpathentry kind="lib" path="lib/optional/dom4j-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/optional/commons-lang-2.0.jar"/>
@@ -47,7 +47,14 @@
 	<classpathentry kind="lib" path="lib/designer/looks.jar"/>
 	<classpathentry kind="lib" path="lib/optional/ejb.jar"/>
 	<classpathentry kind="lib" path="lib/optional/jms.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/core/propertyset-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/optional/propertyset-hibernate-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/optional/propertyset-hibernate3-1.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/core/oscore-2.2.5.jar"/>
 	<classpathentry kind="lib" path="lib/optional/prevayler2.00.001alpha.jar"/>
 	<classpathentry kind="lib" path="lib/optional/velocity-dep-1.4.jar"/>
@@ -55,8 +62,6 @@
 	<classpathentry kind="lib" path="lib/optional/osuser-1.0-dev-2Feb05.jar"/>
 	<classpathentry kind="lib" path="lib/optional/hibernate3.0.5.jar"/>
 	<classpathentry kind="lib" path="lib/optional/spring-1.2.5.jar"/>
-	<classpathentry kind="lib" path="lib/core/propertyset-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/optional/propertyset-hibernate-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/optional/xfire/xfire-aegis.jar"/>
 	<classpathentry kind="lib" path="lib/optional/xfire/xfire-core.jar"/>
 	<classpathentry kind="output" path="build/test"/>
