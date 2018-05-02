@@ -30,8 +30,8 @@ import java.util.*;
 public class AbstractWorkflow implements Workflow {
     //~ Instance fields ////////////////////////////////////////////////////////
 
-    protected Configuration configuration;
     protected final Log log = LogFactory.getLog(getClass());
+    protected Configuration configuration;
     protected ThreadLocal stateCache = new ThreadLocal();
     protected WorkflowContext context;
     private TypeResolver typeResolver;
