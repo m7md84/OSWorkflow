@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/opensymphony/workflow/ejb/|com/opensymphony/workflow/spi/ejb/" kind="src" output="build/java" path="src/java"/>
+	<classpathentry kind="src" output="build/java" path="src/java"/>
 	<classpathentry kind="src" output="build/designer" path="src/designer"/>
 	<classpathentry kind="src" output="build/test" path="src/test"/>
 	<classpathentry kind="lib" path="lib/build/log4j-1.2.8.jar"/>
 	<classpathentry kind="lib" path="lib/optional/dom4j-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/optional/commons-lang-2.0.jar"/>
-	<classpathentry kind="lib" path="lib/optional/commons-collections-2.1.jar"/>
 	<classpathentry kind="lib" path="lib/build/jta.jar"/>
 	<classpathentry kind="lib" path="lib/optional/servlet.jar"/>
 	<classpathentry kind="lib" path="lib/build/xdoclet/commons-collections-2.0.jar"/>
@@ -20,9 +18,7 @@
 	<classpathentry kind="lib" path="lib/optional/cglib2.jar"/>
 	<classpathentry kind="lib" path="lib/optional/webwork.jar"/>
 	<classpathentry kind="lib" path="lib/designer/foxtrot.jar"/>
-	<classpathentry kind="lib" path="lib/core/commons-logging.jar"/>
 	<classpathentry kind="lib" path="lib/optional/xwork-1.0-beta2.jar"/>
-	<classpathentry kind="lib" path="lib/optional/commons-beanutils-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/build/simple-jndi.jar"/>
 	<classpathentry kind="lib" path="lib/optional/quartz.jar"/>
 	<classpathentry kind="lib" path="lib/build/mckoidb.jar"/>
@@ -34,7 +30,6 @@
 	<classpathentry kind="lib" path="lib/optional/jdbc.jar"/>
 	<classpathentry kind="lib" path="lib/optional/ehcache.jar"/>
 	<classpathentry kind="lib" path="lib/optional/bsh-1.2b7.jar"/>
-	<classpathentry kind="lib" path="lib/optional/commons-pool.jar"/>
 	<classpathentry kind="lib" path="lib/build/xmlunit1.0.jar"/>
 	<classpathentry kind="lib" path="lib/designer/looks.jar"/>
 	<classpathentry kind="lib" path="lib/optional/ejb.jar"/>
@@ -42,6 +37,8 @@
 	<classpathentry kind="lib" path="lib/core/propertyset-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/optional/propertyset-hibernate-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/optional/propertyset-hibernate3-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/core/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/optional/commons-lang3-3.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

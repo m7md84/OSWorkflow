@@ -15,7 +15,7 @@ import com.opensymphony.workflow.config.DefaultConfiguration;
 
 import junit.framework.TestCase;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class BeanShellFunctionProviderTestCase extends TestCase {
         try {
             function.execute(transientVars, args, ps);
         } catch (Exception e) {
-            String fullStackTrace = ExceptionUtils.getFullStackTrace(e);
+            String fullStackTrace = ExceptionUtils.getStackTrace(e);
             assertTrue("Make sure our stack trace records the error in JDBC:" + fullStackTrace, fullStackTrace.indexOf("at com.opensymphony.module.propertyset.database.JDBCPropertySet.setImpl") > -1);
         }
     }

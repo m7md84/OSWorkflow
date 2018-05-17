@@ -6,16 +6,6 @@
   
   <property name="common.build" value="osbuild.xml"/>
   <import file="${common.build}"/>
-  
-  <path id="jalopy.classpath">
-    <fileset dir="lib/build/jalopy">
-      <include name="*.jar"/>
-    </fileset>
-  </path>
-
-  <taskdef name="jalopy" classname="de.hunsicker.jalopy.plugin.ant.AntPlugin">
-    <classpath refid="jalopy.classpath"/>
-  </taskdef>
 
   <taskdef name="ejbdoclet" classname="xdoclet.modules.ejb.EjbDocletTask" classpathref="cp"/>
 
@@ -87,11 +77,7 @@
   </target>
 
   <target name="precompile" depends="ejbdoclet">
-    <!--<jalopy fileformat="unix" convention="${src}/etc/jalopy.xml" history="file" historymethod="adler32" loglevel="error" threads="2" classpathref="cp">
-      <fileset dir="${src.java}">
-        <include name="**/*.java"/>
-      </fileset>
-    </jalopy> -->
+    
     <copy todir="${build.java}/META-INF">
       <fileset dir="${docs}">
         <include name="*.dtd"/>
